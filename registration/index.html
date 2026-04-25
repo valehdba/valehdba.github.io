@@ -1,0 +1,1198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NDMJ7KJ');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Register to join the Azerbaijan PostgreSQL User Group community">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/pgyum.css">
+
+    <title>Registration - Azerbaijan PostgreSQL User Group</title>
+
+    <style>
+      /* ============================================
+         PostgreSQL.org Official Style — Registration
+         ============================================ */
+
+      :root {
+        --pg-blue-dark: #336791;
+        --pg-blue-medium: #2f6289;
+        --pg-blue-light: #e7eef4;
+        --pg-blue-hover: #264d6f;
+        --pg-text: #515151;
+        --pg-text-light: #6c757d;
+        --pg-border: #d8dde3;
+        --pg-bg-light: #f5f5f5;
+        --pg-white: #ffffff;
+        --pg-success: #28a745;
+        --pg-danger: #dc3545;
+        --pg-warning: #e8a33d;
+      }
+
+      /* Page layout */
+      .pg-page-wrapper {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .pg-content-area {
+        display: flex;
+        gap: 30px;
+        margin-top: 1rem;
+      }
+
+      /* Sidebar */
+      .pg-sidebar {
+        flex: 0 0 220px;
+        min-width: 220px;
+      }
+
+      /* Sidebar Logo Block */
+      .pg-sidebar-logo {
+        text-align: center;
+        padding: 16px 10px 20px 10px;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid var(--pg-border);
+      }
+
+      .pg-sidebar-logo img {
+        max-width: 160px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .pg-sidebar-logo .pg-sidebar-logo-text {
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--pg-blue-dark);
+        letter-spacing: 0.8px;
+        line-height: 1.4;
+      }
+
+      .pg-sidebar-section {
+        margin-bottom: 2rem;
+      }
+
+      .pg-sidebar-section h3 {
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--pg-blue-dark);
+        letter-spacing: 0.5px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--pg-blue-dark);
+        margin-bottom: 10px;
+      }
+
+      .pg-sidebar-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .pg-sidebar-section ul li {
+        padding: 0;
+        margin: 0;
+      }
+
+      .pg-sidebar-section ul li a {
+        display: block;
+        padding: 5px 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--pg-blue-dark);
+        border-left: 3px solid transparent;
+        transition: all 0.15s ease;
+      }
+
+      .pg-sidebar-section ul li a:hover,
+      .pg-sidebar-section ul li a.active {
+        background: var(--pg-blue-light);
+        border-left-color: var(--pg-blue-dark);
+        text-decoration: none;
+      }
+
+      /* Main content */
+      .pg-main-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      /* Page title */
+      .pg-page-title {
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--pg-text);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--pg-border);
+      }
+
+      .pg-page-subtitle {
+        font-size: 0.95rem;
+        color: var(--pg-text-light);
+        margin-bottom: 1.5rem;
+      }
+
+      /* Registration Form Card */
+      .pg-form-card {
+        background: var(--pg-white);
+        border: 1px solid var(--pg-border);
+        border-radius: 4px;
+        padding: 0;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Watermark logo behind the form */
+      .pg-form-card::before {
+        content: '';
+        position: absolute;
+        bottom: -40px;
+        right: -40px;
+        width: 320px;
+        height: 320px;
+        background: url('/pict/smal.jpeg') no-repeat center center;
+        background-size: contain;
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .pg-form-card-header {
+        position: relative;
+        z-index: 1;
+        background: var(--pg-blue-dark);
+        color: var(--pg-white);
+        padding: 12px 24px;
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 3px 3px 0 0;
+      }
+
+      .pg-form-card-header i {
+        margin-right: 8px;
+        opacity: 0.85;
+      }
+
+      .pg-form-card-body {
+        padding: 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Form styles */
+      .pg-form-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .pg-form-group label {
+        display: block;
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--pg-text);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        letter-spacing: 0.3px;
+      }
+
+      .pg-form-group label .required {
+        color: var(--pg-danger);
+        margin-left: 2px;
+      }
+
+      .pg-form-group .form-hint {
+        font-size: 0.8rem;
+        color: var(--pg-text-light);
+        margin-top: 3px;
+        font-style: italic;
+      }
+
+      .pg-form-control {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.9rem;
+        color: var(--pg-text);
+        background: var(--pg-white);
+        border: 1px solid var(--pg-border);
+        border-radius: 3px;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      .pg-form-control:focus {
+        border-color: var(--pg-blue-dark);
+        box-shadow: 0 0 0 3px rgba(51, 103, 145, 0.15);
+        outline: none;
+      }
+
+      .pg-form-control::placeholder {
+        color: #adb5bd;
+      }
+
+      select.pg-form-control {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23515151' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 32px;
+      }
+
+      textarea.pg-form-control {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      /* Form row for side-by-side fields */
+      .pg-form-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .pg-form-row .pg-form-group {
+        flex: 1;
+      }
+
+      /* Password strength meter */
+      .pg-password-wrapper {
+        position: relative;
+      }
+
+      .pg-password-toggle {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--pg-text-light);
+        cursor: pointer;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+
+      .pg-password-toggle:hover {
+        color: var(--pg-blue-dark);
+      }
+
+      .pg-password-strength {
+        display: flex;
+        gap: 4px;
+        margin-top: 6px;
+      }
+
+      .pg-password-strength-bar {
+        height: 3px;
+        flex: 1;
+        background: #e0e0e0;
+        border-radius: 2px;
+        transition: background 0.3s ease;
+      }
+
+      /* Form section divider */
+      .pg-form-section {
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--pg-blue-dark);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--pg-border);
+        margin: 1.75rem 0 1.25rem 0;
+      }
+
+      .pg-form-section i {
+        margin-right: 6px;
+        font-size: 0.75rem;
+      }
+
+      /* Checkbox / Agreement */
+      .pg-checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .pg-checkbox-group input[type="checkbox"] {
+        margin-top: 3px;
+        accent-color: var(--pg-blue-dark);
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .pg-checkbox-group label {
+        font-size: 0.85rem;
+        color: var(--pg-text);
+        font-weight: 400;
+        text-transform: none;
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+
+      .pg-checkbox-group label a {
+        color: var(--pg-blue-dark);
+        text-decoration: underline;
+      }
+
+      /* Submit button */
+      .pg-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--pg-blue-dark);
+        color: var(--pg-white);
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 10px 28px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.1s ease;
+      }
+
+      .pg-btn-primary:hover {
+        background: var(--pg-blue-hover);
+        text-decoration: none;
+        color: var(--pg-white);
+      }
+
+      .pg-btn-primary:active {
+        transform: translateY(1px);
+      }
+
+      .pg-btn-primary:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .pg-btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--pg-blue-dark);
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 10px 20px;
+        border: 1px solid var(--pg-border);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .pg-btn-secondary:hover {
+        background: var(--pg-blue-light);
+        border-color: var(--pg-blue-dark);
+      }
+
+      .pg-form-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--pg-border);
+      }
+
+      /* Info box */
+      .pg-info-box {
+        background: var(--pg-blue-light);
+        border-left: 4px solid var(--pg-blue-dark);
+        padding: 14px 18px;
+        margin-bottom: 1.5rem;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .pg-info-box p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--pg-text);
+        line-height: 1.6;
+      }
+
+      .pg-info-box p i {
+        color: var(--pg-blue-dark);
+        margin-right: 6px;
+      }
+
+      /* Benefits list */
+      .pg-benefits {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .pg-benefits li {
+        padding: 8px 0;
+        font-size: 0.88rem;
+        color: var(--pg-text);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        border-bottom: 1px solid #eef1f3;
+      }
+
+      .pg-benefits li:last-child {
+        border-bottom: none;
+      }
+
+      .pg-benefits li i {
+        color: var(--pg-blue-dark);
+        margin-top: 3px;
+        flex-shrink: 0;
+        font-size: 0.75rem;
+      }
+
+      /* Validation states */
+      .pg-form-control.is-invalid {
+        border-color: var(--pg-danger);
+      }
+
+      .pg-form-control.is-valid {
+        border-color: var(--pg-success);
+      }
+
+      .pg-invalid-feedback {
+        font-size: 0.8rem;
+        color: var(--pg-danger);
+        margin-top: 4px;
+      }
+
+      /* Success message */
+      .pg-success-message {
+        display: none;
+        text-align: center;
+        padding: 3rem 2rem;
+      }
+
+      .pg-success-message i {
+        font-size: 3rem;
+        color: var(--pg-success);
+        margin-bottom: 1rem;
+      }
+
+      .pg-success-message h3 {
+        font-family: 'Maven Pro', sans-serif;
+        font-size: 1.4rem;
+        color: var(--pg-text);
+        margin-bottom: 0.5rem;
+      }
+
+      .pg-success-message p {
+        color: var(--pg-text-light);
+        font-size: 0.95rem;
+      }
+
+      /* Footer with logo */
+      #footer img.footer-logo {
+        height: 36px;
+        margin-bottom: 10px;
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+      }
+
+      #footer img.footer-logo:hover {
+        opacity: 1;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .pg-content-area {
+          flex-direction: column;
+        }
+
+        .pg-sidebar {
+          flex: auto;
+          min-width: auto;
+          order: 2;
+        }
+
+        .pg-main-content {
+          order: 1;
+        }
+
+        .pg-form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .pg-form-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .pg-btn-primary,
+        .pg-btn-secondary {
+          justify-content: center;
+        }
+      }
+    </style>
+      <meta property="og:title" content="Register - Azerbaijan PostgreSQL User Group">
+    <meta property="og:description" content="Join the community for free. Register to access blog posts, events, job board, and connect with PostgreSQL professionals in Azerbaijan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://postgresql.az/registration/">
+    <meta property="og:site_name" content="Azerbaijan PostgreSQL User Group (AZERPUG)">
+    <meta property="og:image" content="https://postgresql.az/pict/smal.jpeg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Register - Azerbaijan PostgreSQL User Group">
+    <meta name="twitter:description" content="Join the community for free. Register to access blog posts, events, job board, and connect with PostgreSQL professionals in Azerbaijan.">
+    <link rel="canonical" href="https://postgresql.az/registration/">
+    <link rel="alternate" type="application/rss+xml" title="Azerbaijan PostgreSQL User Group Blog RSS" href="/feed.xml">
+  </head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDMJ7KJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container-fluid">
+      <!-- Nav -->
+      <div class="row justify-content-md-center">
+         <div class="col">
+           <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+             <a class="navbar-brand p-0" aria-label="AZERPUG Home" href="/">
+               <img class="logo" src="/pict/smal.jpeg" alt="Azerbaijan PostgreSQL User Group Logo">
+             </a>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="pgNavbar">
+               <ul class="navbar-nav mr-auto">
+                 <li class="nav-item p-2"><a href="/" title="Home" data-i18n="nav.home">Home</a></li>
+                 <li class="nav-item p-2"><a href="/blogs/" title="Blog Posts" data-i18n="nav.blog">Blog Posts</a></li>
+                 <li class="nav-item p-2"><a href="/events/" title="Events" data-i18n="nav.events">Events</a></li>
+                 <li class="nav-item p-2"><a href="/registration/" title="Registration" data-i18n="nav.registration">Registration</a></li>
+                 <li class="nav-item p-2"><a href="/members/" title="Members" data-i18n="nav.members">Members</a></li>
+                 <li class="nav-item p-2"><a href="/community/" title="Global Community" data-i18n="nav.community">Global Community</a></li>
+                 <li class="nav-item p-2"><a href="/profile/" title="My Profile" data-i18n="nav.profile">My Profile</a></li>
+                 <li class="nav-item p-2 dropdown">
+                  <a href="/about/" class="dropdown-toggle" data-toggle="dropdown" data-i18n="nav.about">About</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/about/" data-i18n="nav.about">About</a>
+                    <a class="dropdown-item" href="/sponsors/" data-i18n="nav.sponsors">Sponsors</a>
+                    <a class="dropdown-item" href="/faq/" data-i18n="nav.faq">FAQ</a>
+                    <a class="dropdown-item" href="/gallery/" data-i18n="nav.gallery">Gallery</a>
+                    <a class="dropdown-item" href="/contact/" data-i18n="nav.contact">Contact</a>
+                    <a class="dropdown-item" href="/contribute/" data-i18n="nav.contribute">Contribute</a>
+                    <a class="dropdown-item" href="/coc/" data-i18n="nav.coc">Code of Conduct</a>
+                  </div>
+                </li>
+               </ul>
+             </div>
+	       </nav>
+         </div>
+      </div>
+      <!-- End Nav -->
+
+      <!-- Page Content -->
+      <div class="pg-page-wrapper" style="margin-top: 1rem;">
+        <div class="pg-content-area">
+
+          <!-- Sidebar -->
+          <aside class="pg-sidebar">
+            <!-- Sidebar Logo -->
+            <div class="pg-sidebar-logo">
+              <a href="/">
+                <img src="/pict/smal.jpeg" alt="AZERPUG — Azerbaijan PostgreSQL User Group">
+              </a>
+              <div class="pg-sidebar-logo-text">Azerbaijan PostgreSQL<br>User Group</div>
+            </div>
+
+            <div class="pg-sidebar-section">
+              <h3>Community</h3>
+              <ul>
+                <li><a href="/registration/" class="active">Registration</a></li>
+                <li><a href="/members/">Members</a></li>
+                <li><a href="/blogs/">Blog Posts</a></li>
+                <li><a href="/news/">News</a></li>
+              </ul>
+            </div>
+
+            <div class="pg-sidebar-section">
+              <h3>Member Benefits</h3>
+              <ul class="pg-benefits">
+                <li><i class="fas fa-check"></i> Access to community meetups and events</li>
+                <li><i class="fas fa-check"></i> PostgreSQL knowledge sharing sessions</li>
+                <li><i class="fas fa-check"></i> Networking with PostgreSQL professionals in Azerbaijan</li>
+                <li><i class="fas fa-check"></i> Early access to workshop registrations</li>
+                <li><i class="fas fa-check"></i> Community blog posting privileges</li>
+              </ul>
+            </div>
+
+            <div class="pg-sidebar-section">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostgreSQL.org</a></li>
+                <li><a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener">Documentation</a></li>
+                <li><a href="https://www.postgresql.org/download/" target="_blank" rel="noopener">Download PostgreSQL</a></li>
+                <li><a href="https://wiki.postgresql.org/" target="_blank" rel="noopener">PostgreSQL Wiki</a></li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="pg-main-content">
+            <h1 class="pg-page-title" data-i18n="reg.title">Member Registration</h1>
+            <p class="pg-page-subtitle">Join the Azerbaijan PostgreSQL User Group (AZERPUG) — the official PostgreSQL community in Azerbaijan.</p>
+
+            <div class="pg-info-box">
+              <p><i class="fas fa-info-circle"></i> Registration is free and open to everyone interested in PostgreSQL — developers, DBAs, students, and enthusiasts. Fill out the form below to become a member of the community.</p>
+              <p style="margin-top:8px;"><i class="fas fa-sign-in-alt"></i> Already a member? <a href="/profile/" style="font-weight:700;" data-i18n="reg.sign_in">Sign in here</a></p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="pg-form-card">
+              <div class="pg-form-card-header">
+                <i class="fas fa-user-plus"></i> <span data-i18n="reg.create">Create Your Account</span>
+              </div>
+              <div class="pg-form-card-body">
+
+                <!-- Google Sign-Up -->
+                <div style="text-align:center;margin-bottom:20px;">
+                  <p style="font-size:.9rem;color:var(--pg-text-light);margin-bottom:14px;" data-i18n="reg.google_quick">Quick registration with your Google account:</p>
+                  <div id="googleBtnContainer" style="display:flex;justify-content:center;margin-bottom:8px;">
+                    <div id="g_id_onload"
+                      data-client_id="328722583843-n04cr2tp7uhg4876m74ap124t366khq7.apps.googleusercontent.com"
+                      data-context="signup"
+                      data-callback="handleGoogleCredential"
+                      data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin"
+                      data-type="standard"
+                      data-shape="rectangular"
+                      data-theme="outline"
+                      data-text="signup_with"
+                      data-size="large"
+                      data-logo_alignment="left"
+                      data-width="300">
+                    </div>
+                  </div>
+                  <div id="googleStatusMsg" style="display:none;text-align:center;font-size:.85rem;margin-bottom:8px;"></div>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;color:var(--pg-text-light);font-size:.78rem;text-transform:uppercase;font-weight:700;">
+                  <div style="flex:1;height:1px;background:var(--pg-border);"></div>
+                  <span data-i18n="reg.or_email">or register with email</span>
+                  <div style="flex:1;height:1px;background:var(--pg-border);"></div>
+                </div>
+
+                <form id="registrationForm" novalidate>
+
+                  <!-- Account Information -->
+                  <div class="pg-form-section">
+                    <i class="fas fa-key"></i data-i18n="reg.account_info"> Account Information
+                  </div>
+
+                  <div class="pg-form-row">
+                    <div class="pg-form-group">
+                      <label for="firstName" data-i18n="reg.first_name">First Name <span class="required">*</span></label>
+                      <input type="text" class="pg-form-control" id="firstName" name="firstName" placeholder="e.g. Elvin" data-i18n-placeholder="reg.ph_firstname" required>
+                      <div class="pg-invalid-feedback" id="firstNameError"></div>
+                    </div>
+                    <div class="pg-form-group">
+                      <label for="lastName" data-i18n="reg.last_name">Last Name <span class="required">*</span></label>
+                      <input type="text" class="pg-form-control" id="lastName" name="lastName" placeholder="e.g. Məmmədov" data-i18n-placeholder="reg.ph_lastname" required>
+                      <div class="pg-invalid-feedback" id="lastNameError"></div>
+                    </div>
+                  </div>
+
+                  <div class="pg-form-group">
+                    <label for="email" data-i18n="reg.email">Email Address <span class="required">*</span></label>
+                    <input type="email" class="pg-form-control" id="email" name="email" placeholder="you@example.com" data-i18n-placeholder="reg.ph_email" required>
+                    <div class="pg-invalid-feedback" id="emailError"></div>
+                  </div>
+
+                  <div class="pg-form-row">
+                    <div class="pg-form-group">
+                      <label for="password" data-i18n="reg.password">Password <span class="required">*</span></label>
+                      <div class="pg-password-wrapper">
+                        <input type="password" class="pg-form-control" id="password" name="password" placeholder="Minimum 8 characters" data-i18n-placeholder="reg.ph_password" required minlength="8">
+                        <button type="button" class="pg-password-toggle" onclick="togglePassword('password', this)" aria-label="Toggle password visibility">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </div>
+                      <div class="pg-password-strength" id="passwordStrength">
+                        <div class="pg-password-strength-bar"></div>
+                        <div class="pg-password-strength-bar"></div>
+                        <div class="pg-password-strength-bar"></div>
+                        <div class="pg-password-strength-bar"></div>
+                      </div>
+                      <div class="pg-invalid-feedback" id="passwordError"></div>
+                    </div>
+                    <div class="pg-form-group">
+                      <label for="confirmPassword" data-i18n="reg.confirm_password">Confirm Password <span class="required">*</span></label>
+                      <div class="pg-password-wrapper">
+                        <input type="password" class="pg-form-control" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" data-i18n-placeholder="reg.ph_confirm" required>
+                        <button type="button" class="pg-password-toggle" onclick="togglePassword('confirmPassword', this)" aria-label="Toggle password visibility">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </div>
+                      <div class="pg-invalid-feedback" id="confirmPasswordError"></div>
+                    </div>
+                  </div>
+
+                  <!-- Professional Information -->
+                  <div class="pg-form-section">
+                    <i class="fas fa-briefcase"></i data-i18n="reg.professional"> Professional Information
+                  </div>
+
+                  <div class="pg-form-row">
+                    <div class="pg-form-group">
+                      <label for="company" data-i18n="reg.company">Company / Organization</label>
+                      <input type="text" class="pg-form-control" id="company" name="company" placeholder="Your company or organization" data-i18n-placeholder="reg.ph_company">
+                    </div>
+                    <div class="pg-form-group">
+                      <label for="jobTitle" data-i18n="reg.job_title">Job Title / Role</label>
+                      <input type="text" class="pg-form-control" id="jobTitle" name="jobTitle" placeholder="e.g. Database Administrator" data-i18n-placeholder="reg.ph_jobtitle">
+                    </div>
+                  </div>
+
+                  <div class="pg-form-row">
+                    <div class="pg-form-group">
+                      <label for="linkedin" data-i18n="reg.linkedin">LinkedIn Profile</label>
+                      <input type="url" class="pg-form-control" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname" data-i18n-placeholder="reg.ph_linkedin">
+                      <div class="form-hint" data-i18n="reg.linkedin_hint">Optional — your public LinkedIn profile URL</div>
+                    </div>
+                    <div class="pg-form-group">
+                      <label for="phone" data-i18n="reg.phone">Phone Number</label>
+                      <input type="tel" class="pg-form-control" id="phone" name="phone" placeholder="+994 XX XXX XX XX" data-i18n-placeholder="reg.ph_phone">
+                      <div class="form-hint" data-i18n="reg.phone_hint">Optional — for event notifications via SMS</div>
+                    </div>
+                  </div>
+
+                  <!-- Additional Info -->
+                  <div class="pg-form-section">
+                    <i class="fas fa-comment-alt"></i data-i18n="reg.additional"> Additional Information
+                  </div>
+
+                  <div class="pg-form-group">
+                    <label for="personalNotes" data-i18n="reg.notes">Personal Notes</label>
+                    <textarea class="pg-form-control" id="personalNotes" name="personalNotes" rows="3" data-i18n-placeholder="reg.ph_notes" placeholder="Tell us about yourself — your interests in PostgreSQL, what you hope to gain from the community, or anything else you'd like to share..."></textarea>
+                    <div class="form-hint" data-i18n="reg.notes_hint">Optional — help us get to know you better</div>
+                  </div>
+
+                  <!-- Agreements -->
+                  <div class="pg-form-section">
+                    <i class="fas fa-shield-alt"></i data-i18n="reg.terms"> Terms &amp; Privacy
+                  </div>
+
+                  <div class="pg-checkbox-group">
+                    <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                    <label for="agreeTerms" data-i18n-html="reg.agree_html">I agree to the <a href="/about/privacypolicy/" target="_blank">Privacy Policy</a> and consent to storing my registration data. <span class="required">*</span></label>
+                  </div>
+
+                  <div class="pg-checkbox-group">
+                    <input type="checkbox" id="agreeNewsletter" name="agreeNewsletter" checked>
+                    <label for="agreeNewsletter" data-i18n="reg.newsletter">I would like to receive community news, event invitations, and PostgreSQL updates via email.</label>
+                  </div>
+
+                  <!-- Form Error Banner -->
+                  <div id="formError" style="display:none; background:#fef2f2; border:1px solid #fca5a5; color:#dc3545; padding:10px 16px; border-radius:3px; font-size:0.88rem; margin-top:1rem;">
+                  </div>
+
+                  <!-- Form Actions -->
+                  <div class="pg-form-actions">
+                    <button type="submit" class="pg-btn-primary" id="submitBtn">
+                      <i class="fas fa-user-plus"></i data-i18n="reg.register_btn"> Register
+                    </button>
+                    <button type="reset" class="pg-btn-secondary" onclick="resetForm()">
+                      <i class="fas fa-undo"></i data-i18n="reg.reset_btn"> Reset
+                    </button>
+                  </div>
+
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div class="pg-success-message" id="successMessage">
+                  <i class="fas fa-check-circle"></i>
+                  <h3 data-i18n="reg.success_title">Registration Successful!</h3>
+                  <p data-i18n="reg.success_desc">Welcome to the Azerbaijan PostgreSQL User Group. You are now logged in and will be redirected to the home page.</p>
+                  <br>
+                  <a href="/" class="pg-btn-primary"><i class="fas fa-home"></i data-i18n="common.back_home"> Go to Home</a>
+                </div>
+              </div>
+            </div>
+          </main>
+
+        </div>
+      </div>
+      <!-- End Page Content -->
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <a href="/">
+          <img class="footer-logo" src="/pict/smal.jpeg" alt="AZERPUG Logo">
+        </a>
+        <br/>
+        <div style="margin-bottom:12px;"><a href="https://www.facebook.com/groups/www.postgresql.az" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="Facebook" aria-label="Facebook Group"><i class="fab fa-facebook"></i></a> <a href="https://github.com/valehdba/postgresql.az" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="GitHub" aria-label="our GitHub Repository"><i class="fab fa-github"></i></a> <a href="https://www.linkedin.com/groups/17977044/" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="LinkedIn" aria-label="LinkedIn Group"><i class="fab fa-linkedin"></i></a> <a href="https://t.me/postgresqlaz" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="Telegram" aria-label="Telegram Group"><i class="fab fa-telegram-plane"></i></a> <a href="https://www.youtube.com/@postgresqlaz" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="YouTube" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a></div>
+        <a href="/about/privacypolicy/" data-i18n="footer.privacy">Privacy policy</a> | <a href="/about/website/" data-i18n="footer.website">About the website</a> | <a href="/coc/" data-i18n="footer.coc">Code of Conduct</a>
+        <br/>
+        Copyright &copy; 2018-2025 Azerbaijan PostgreSQL User Group (AZERPUG)
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+      // =============================================
+      // SUPABASE CONFIGURATION
+      // =============================================
+      // Supabase Auth — registration uses sbSignUp() from supabase-client.js
+      // SUPABASE_URL and SUPABASE_ANON_KEY are in supabase-client.js
+      // =============================================
+
+      // SHA-256 hash (only for email-exists check via old RPC if needed)
+      async function hashPassword(password) {
+        var encoder = new TextEncoder();
+        var data = encoder.encode(password);
+        var hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        var hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+      }
+
+      // Supabase REST helpers (for check_email_exists which is still a public RPC)
+      async function supabaseRpc(fnName, params) {
+        var response = await fetch(SUPABASE_URL + '/rest/v1/rpc/' + fnName, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
+          },
+          body: JSON.stringify(params)
+        });
+
+        if (!response.ok) {
+          throw new Error('RPC call failed');
+        }
+
+        return await response.json();
+      }
+
+      // =============================================
+      // Toggle password visibility
+      // =============================================
+      function togglePassword(fieldId, btn) {
+        var field = document.getElementById(fieldId);
+        var icon = btn.querySelector('i');
+        if (field.type === 'password') {
+          field.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          field.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
+      }
+
+      // =============================================
+      // Password strength meter
+      // =============================================
+      document.getElementById('password').addEventListener('input', function() {
+        var val = this.value;
+        var strength = 0;
+        if (val.length >= 8) strength++;
+        if (/[a-z]/.test(val) && /[A-Z]/.test(val)) strength++;
+        if (/\d/.test(val)) strength++;
+        if (/[^a-zA-Z0-9]/.test(val)) strength++;
+
+        var bars = document.querySelectorAll('#passwordStrength .pg-password-strength-bar');
+        var colors = ['#dc3545', '#e8a33d', '#ffc107', '#28a745'];
+        bars.forEach(function(bar, i) {
+          if (i < strength) {
+            bar.style.background = colors[Math.min(strength - 1, 3)];
+          } else {
+            bar.style.background = '#e0e0e0';
+          }
+        });
+      });
+
+      // =============================================
+      // Error / Loading UI helpers
+      // =============================================
+      function showError(elementId, message) {
+        var el = document.getElementById(elementId);
+        if (el) el.textContent = message;
+      }
+
+      function setSubmitLoading(loading) {
+        var btn = document.getElementById('submitBtn');
+        if (loading) {
+          btn.disabled = true;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-user-plus"></i> Register';
+        }
+      }
+
+      function showFormError(message) {
+        var errorDiv = document.getElementById('formError');
+        if (errorDiv) {
+          errorDiv.textContent = message;
+          errorDiv.style.display = 'block';
+        }
+      }
+
+      function hideFormError() {
+        var errorDiv = document.getElementById('formError');
+        if (errorDiv) errorDiv.style.display = 'none';
+      }
+
+      // =============================================
+      // Form validation & submission to Supabase
+      // =============================================
+      document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var isValid = true;
+        hideFormError();
+
+        // Clear previous errors
+        document.querySelectorAll('.pg-invalid-feedback').forEach(function(el) { el.textContent = ''; });
+        document.querySelectorAll('.pg-form-control').forEach(function(el) {
+          el.classList.remove('is-invalid', 'is-valid');
+        });
+
+        // First Name
+        var firstName = document.getElementById('firstName');
+        if (!firstName.value.trim()) {
+          firstName.classList.add('is-invalid');
+          showError('firstNameError', 'First name is required.');
+          isValid = false;
+        } else {
+          firstName.classList.add('is-valid');
+        }
+
+        // Last Name
+        var lastName = document.getElementById('lastName');
+        if (!lastName.value.trim()) {
+          lastName.classList.add('is-invalid');
+          showError('lastNameError', 'Last name is required.');
+          isValid = false;
+        } else {
+          lastName.classList.add('is-valid');
+        }
+
+        // Email
+        var email = document.getElementById('email');
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) {
+          email.classList.add('is-invalid');
+          showError('emailError', 'Email address is required.');
+          isValid = false;
+        } else if (!emailRegex.test(email.value)) {
+          email.classList.add('is-invalid');
+          showError('emailError', 'Please enter a valid email address.');
+          isValid = false;
+        } else {
+          email.classList.add('is-valid');
+        }
+
+        // Password
+        var password = document.getElementById('password');
+        if (!password.value) {
+          password.classList.add('is-invalid');
+          showError('passwordError', 'Password is required.');
+          isValid = false;
+        } else if (password.value.length < 8) {
+          password.classList.add('is-invalid');
+          showError('passwordError', 'Password must be at least 8 characters.');
+          isValid = false;
+        } else {
+          password.classList.add('is-valid');
+        }
+
+        // Confirm Password
+        var confirmPassword = document.getElementById('confirmPassword');
+        if (!confirmPassword.value) {
+          confirmPassword.classList.add('is-invalid');
+          showError('confirmPasswordError', 'Please confirm your password.');
+          isValid = false;
+        } else if (confirmPassword.value !== password.value) {
+          confirmPassword.classList.add('is-invalid');
+          showError('confirmPasswordError', 'Passwords do not match.');
+          isValid = false;
+        } else {
+          confirmPassword.classList.add('is-valid');
+        }
+
+        // Terms agreement
+        var agreeTerms = document.getElementById('agreeTerms');
+        if (!agreeTerms.checked) {
+          isValid = false;
+          showFormError('Please agree to the Privacy Policy to continue.');
+        }
+
+        if (!isValid) return;
+
+        // =============================================
+        // Submit to Supabase
+        // =============================================
+        setSubmitLoading(true);
+
+        try {
+          // Check if email already exists (skip if RPC fails)
+          try {
+            var emailExists = await supabaseRpc('check_email_exists', {
+              check_email: email.value.trim().toLowerCase()
+            });
+
+            if (emailExists) {
+              email.classList.remove('is-valid');
+              email.classList.add('is-invalid');
+              showError('emailError', 'This email is already registered. Please use a different email or log in.');
+              setSubmitLoading(false);
+              return;
+            }
+          } catch (rpcError) {
+            // RPC check failed — proceed anyway, the DB unique constraint will catch duplicates
+            console.warn('Email check RPC failed (non-critical):', rpcError);
+          }
+
+          // Hash the password
+          var passwordHash = await hashPassword(password.value);
+
+          // Prepare member data
+          var memberData = {
+            first_name: firstName.value.trim(),
+            last_name: lastName.value.trim(),
+            email: email.value.trim().toLowerCase(),
+            password_hash: passwordHash,
+            company: document.getElementById('company').value.trim() || null,
+            job_title: document.getElementById('jobTitle').value.trim() || null,
+            pg_experience: 'beginner',
+            linkedin: document.getElementById('linkedin').value.trim() || null,
+            phone: document.getElementById('phone').value.trim() || null,
+            personal_notes: document.getElementById('personalNotes').value.trim() || null,
+            newsletter: document.getElementById('agreeNewsletter').checked
+          };
+
+          console.log('Submitting via Supabase Auth...');
+
+          // Register via Supabase Auth
+          try {
+            var signUpResult = await sbSignUp(
+              email.value.trim().toLowerCase(),
+              password.value,
+              {
+                first_name: firstName.value.trim(),
+                last_name: lastName.value.trim(),
+                company: document.getElementById('company').value.trim() || null,
+                job_title: document.getElementById('jobTitle').value.trim() || null,
+                linkedin: document.getElementById('linkedin').value.trim() || null,
+                phone: document.getElementById('phone').value.trim() || null,
+                personal_notes: document.getElementById('personalNotes').value.trim() || null,
+                newsletter: document.getElementById('agreeNewsletter').checked
+              }
+            );
+            console.log('SignUp result:', signUpResult);
+          } catch(signUpErr) {
+            console.error('SignUp error:', signUpErr);
+            if (signUpErr.message && signUpErr.message.includes('already registered')) {
+              email.classList.remove('is-valid');
+              email.classList.add('is-invalid');
+              showError('emailError', 'This email is already registered.');
+              setSubmitLoading(false);
+              return;
+            }
+            showFormError('Registration failed: ' + (signUpErr.message || 'Please try again.'));
+            setSubmitLoading(false);
+            return;
+          }
+
+          // Auto-login after registration
+          try {
+            await sbSignIn(email.value.trim().toLowerCase(), password.value);
+          } catch(loginErr) { console.warn('Auto-login failed:', loginErr); }
+
+          // Send email notification for new registration
+          try {
+            await emailjs.send('service_gtolwpf', 'template_lt1rmcl', {
+              name: firstName.value.trim() + ' ' + lastName.value.trim(),
+              email: email.value.trim(),
+              company: document.getElementById('company').value.trim() || 'Not specified',
+              job_title: document.getElementById('jobTitle').value.trim() || 'Not specified'
+            });
+          } catch(emailErr) { console.warn('Registration email failed:', emailErr); }
+
+          // Show success message briefly, then redirect
+          document.getElementById('registrationForm').style.display = 'none';
+          document.getElementById('successMessage').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(function() { window.location.href = '/'; }, 2000);
+
+        } catch (error) {
+          console.error('Registration error:', error);
+          showFormError('Registration failed: ' + (error.message || 'Network error. Please check your connection and try again.'));
+          setSubmitLoading(false);
+        }
+      });
+
+      // =============================================
+      // Reset form
+      // =============================================
+      function resetForm() {
+        document.querySelectorAll('.pg-invalid-feedback').forEach(function(el) { el.textContent = ''; });
+        document.querySelectorAll('.pg-form-control').forEach(function(el) {
+          el.classList.remove('is-invalid', 'is-valid');
+        });
+        var bars = document.querySelectorAll('#passwordStrength .pg-password-strength-bar');
+        bars.forEach(function(bar) { bar.style.background = '#e0e0e0'; });
+        hideFormError();
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/navbar-auth-v2.js"></script>
+    <script src="/js/lang.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('1xXaZzZ874ZIGQM8Q');</script>
+    <!-- Google Sign-In -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="/js/google-auth-v2.js"></script>
+</body>
+</html>

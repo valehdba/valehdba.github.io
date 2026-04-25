@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NDMJ7KJ');</script>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="PostgreSQL Job Board - Find PostgreSQL-related jobs in Azerbaijan">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/pgyum.css">
+    <title>Job Board - Azerbaijan PostgreSQL User Group</title>
+    <style>
+      :root{--pg-blue-dark:#336791;--pg-blue-light:#e7eef4;--pg-blue-hover:#264d6f;--pg-text:#515151;--pg-text-light:#6c757d;--pg-border:#d8dde3;--pg-bg-light:#f5f5f5;--pg-white:#fff;--pg-success:#28a745;--pg-danger:#dc3545}
+      .pg-page-wrapper{max-width:1140px;margin:0 auto;padding:0 15px}.pg-content-area{display:flex;gap:30px;margin-top:1rem}
+      .pg-sidebar{flex:0 0 220px;min-width:220px}.pg-sidebar-logo{text-align:center;padding:16px 10px 20px;margin-bottom:1.5rem;border-bottom:2px solid var(--pg-border)}.pg-sidebar-logo img{max-width:160px;height:auto;margin-bottom:10px}.pg-sidebar-logo .pg-sidebar-logo-text{font-family:'Maven Pro',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--pg-blue-dark);letter-spacing:.8px;line-height:1.4}
+      .pg-sidebar-section{margin-bottom:2rem}.pg-sidebar-section h3{font-family:'Maven Pro',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;color:var(--pg-blue-dark);letter-spacing:.5px;padding-bottom:8px;border-bottom:2px solid var(--pg-blue-dark);margin-bottom:10px}.pg-sidebar-section ul{list-style:none;padding:0;margin:0}.pg-sidebar-section ul li a{display:block;padding:5px 10px;font-size:.9rem;font-weight:600;color:var(--pg-blue-dark);border-left:3px solid transparent;transition:all .15s ease}.pg-sidebar-section ul li a:hover,.pg-sidebar-section ul li a.active{background:var(--pg-blue-light);border-left-color:var(--pg-blue-dark);text-decoration:none}
+      .pg-main-content{flex:1;min-width:0}.pg-page-title{font-family:'Maven Pro',sans-serif;font-size:1.6rem;font-weight:700;color:var(--pg-text);text-transform:uppercase;margin-bottom:.25rem;padding-bottom:10px;border-bottom:2px solid var(--pg-border)}.pg-page-subtitle{font-size:.95rem;color:var(--pg-text-light);margin-bottom:1.5rem;line-height:1.6}
+      .pg-section-title{font-family:'Maven Pro',sans-serif;font-size:1.05rem;font-weight:700;color:var(--pg-text);text-transform:uppercase;padding-bottom:8px;border-bottom:2px solid var(--pg-border);margin:1.75rem 0 1.25rem;display:flex;align-items:center;gap:8px}.pg-section-title i{color:var(--pg-blue-dark)}
+
+      /* Job cards */
+      .pg-job-card{background:var(--pg-white);border:1px solid var(--pg-border);border-radius:6px;padding:24px;margin-bottom:1.25rem;transition:box-shadow .2s ease,border-color .2s ease}
+      .pg-job-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06);border-color:var(--pg-blue-dark)}
+      .pg-job-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+      .pg-job-card h3{font-family:'Maven Pro',sans-serif;font-size:1.08rem;font-weight:700;margin:0;text-transform:none;color:var(--pg-text)}
+      .pg-job-badges{display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+      .pg-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+      .pg-badge-ft{background:#e3f2fd;color:#1565c0}.pg-badge-pt{background:#f3e5f5;color:#7b1fa2}.pg-badge-contract{background:#fff3e0;color:#e65100}.pg-badge-freelance{background:#fce4ec;color:#c62828}.pg-badge-internship{background:#e8f5e9;color:#2e7d32}
+      .pg-badge-remote{background:#d4edda;color:#155724}
+      .pg-job-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--pg-text-light);margin-bottom:10px}.pg-job-meta i{margin-right:3px;color:var(--pg-blue-dark)}
+      .pg-job-desc{font-size:.88rem;color:var(--pg-text);line-height:1.6;margin-bottom:12px}
+      .pg-job-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+      .pg-tag{display:inline-block;padding:2px 10px;background:var(--pg-blue-light);color:var(--pg-blue-dark);font-size:.72rem;font-weight:600;border-radius:12px}
+      .pg-job-apply{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+      .pg-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Maven Pro',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:8px 18px;border:none;border-radius:3px;cursor:pointer;transition:all .15s ease;text-decoration:none}
+      .pg-btn-primary{background:var(--pg-blue-dark);color:var(--pg-white)}.pg-btn-primary:hover{background:var(--pg-blue-hover);color:var(--pg-white);text-decoration:none}.pg-btn-primary:disabled{opacity:.6;cursor:not-allowed}
+      .pg-btn-secondary{background:transparent;color:var(--pg-blue-dark);border:1px solid var(--pg-border)}.pg-btn-secondary:hover{background:var(--pg-blue-light);text-decoration:none;color:var(--pg-blue-dark)}
+      .pg-btn-success{background:var(--pg-success);color:var(--pg-white)}.pg-btn-success:hover{background:#218838;color:var(--pg-white);text-decoration:none}
+
+      /* Post job form */
+      .pg-card{background:var(--pg-white);border:1px solid var(--pg-border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+      .pg-card-header{background:var(--pg-blue-dark);color:var(--pg-white);padding:12px 20px;font-family:'Maven Pro',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase}.pg-card-header i{margin-right:8px;opacity:.85}
+      .pg-card-body{padding:24px}
+      .pg-form-group{margin-bottom:1.25rem}.pg-form-group label{display:block;font-family:'Maven Pro',sans-serif;font-size:.82rem;font-weight:700;color:var(--pg-text);text-transform:uppercase;margin-bottom:5px}.pg-form-group label .req{color:var(--pg-danger)}
+      .pg-form-control{display:block;width:100%;padding:8px 12px;font-size:.9rem;color:var(--pg-text);border:1px solid var(--pg-border);border-radius:3px;transition:border-color .15s,box-shadow .15s;font-family:'Open Sans',sans-serif}.pg-form-control:focus{border-color:var(--pg-blue-dark);box-shadow:0 0 0 3px rgba(51,103,145,.15);outline:none}
+      select.pg-form-control{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23515151' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+      textarea.pg-form-control{resize:vertical;min-height:100px}
+      .pg-form-row{display:flex;gap:20px}.pg-form-row .pg-form-group{flex:1}
+      .pg-form-hint{font-size:.78rem;color:var(--pg-text-light);font-style:italic;margin-top:3px}
+      .pg-form-actions{display:flex;gap:10px;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--pg-border)}
+      .pg-alert{padding:12px 18px;border-radius:3px;margin-bottom:1rem;font-size:.88rem}.pg-alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}.pg-alert-danger{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+      .pg-info-box{background:var(--pg-blue-light);border-left:4px solid var(--pg-blue-dark);padding:14px 18px;margin-bottom:1.5rem;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--pg-text);line-height:1.6}.pg-info-box i{color:var(--pg-blue-dark);margin-right:6px}
+      .pg-empty{text-align:center;padding:3rem 2rem;color:var(--pg-text-light)}.pg-empty i{font-size:2.5rem;color:var(--pg-border);margin-bottom:.75rem;display:block}
+      .pg-loading{text-align:center;padding:3rem;color:var(--pg-text-light)}.pg-loading i{font-size:2rem;color:var(--pg-blue-dark);margin-bottom:.75rem;display:block}
+      .pg-view{display:none}.pg-view.active{display:block}
+      .pg-checkbox{display:flex;align-items:center;gap:8px}.pg-checkbox input{width:16px;height:16px;accent-color:var(--pg-blue-dark)}.pg-checkbox label{margin:0;text-transform:none;font-weight:400;font-size:.88rem}
+      #footer img.footer-logo{height:36px;margin-bottom:10px;opacity:.6;transition:opacity .2s}#footer img.footer-logo:hover{opacity:1}
+      @media(max-width:768px){.pg-content-area{flex-direction:column}.pg-sidebar{flex:auto;order:2}.pg-main-content{order:1}.pg-form-row{flex-direction:column;gap:0}.pg-job-header{flex-direction:column}}
+    </style>
+      <meta property="og:title" content="Job Board - Azerbaijan PostgreSQL User Group">
+    <meta property="og:description" content="Find PostgreSQL-related jobs in Azerbaijan and remote positions. Post job openings for free as a community member.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://postgresql.az/jobs/">
+    <meta property="og:site_name" content="Azerbaijan PostgreSQL User Group (AZERPUG)">
+    <meta property="og:image" content="https://postgresql.az/pict/smal.jpeg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Job Board - Azerbaijan PostgreSQL User Group">
+    <meta name="twitter:description" content="Find PostgreSQL-related jobs in Azerbaijan and remote positions. Post job openings for free as a community member.">
+    <link rel="canonical" href="https://postgresql.az/jobs/">
+    <link rel="alternate" type="application/rss+xml" title="Azerbaijan PostgreSQL User Group Blog RSS" href="/feed.xml">
+  </head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDMJ7KJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="container-fluid"><div class="row justify-content-md-center"><div class="col">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand p-0" aria-label="AZERPUG Home" href="/"><img class="logo" src="/pict/smal.jpeg" alt="AZERPUG"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="pgNavbar"><ul class="navbar-nav mr-auto">
+          <li class="nav-item p-2"><a href="/" data-i18n="nav.home">Home</a></li><li class="nav-item p-2"><a href="/blogs/" data-i18n="nav.blog">Blog Posts</a></li><li class="nav-item p-2"><a href="/events/" data-i18n="nav.events">Events</a></li><li class="nav-item p-2"><a href="/registration/" data-i18n="nav.registration">Registration</a></li><li class="nav-item p-2"><a href="/members/" data-i18n="nav.members">Members</a></li><li class="nav-item p-2"><a href="/community/" data-i18n="nav.community">Global Community</a></li><li class="nav-item p-2"><a href="/profile/" data-i18n="nav.profile">My Profile</a></li><li class="nav-item p-2 dropdown">
+                  <a href="/about/" class="dropdown-toggle" data-toggle="dropdown" data-i18n="nav.about">About</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/about/" data-i18n="nav.about">About</a>
+                    <a class="dropdown-item" href="/sponsors/" data-i18n="nav.sponsors">Sponsors</a>
+                    <a class="dropdown-item" href="/faq/" data-i18n="nav.faq">FAQ</a>
+                    <a class="dropdown-item" href="/gallery/" data-i18n="nav.gallery">Gallery</a>
+                    <a class="dropdown-item" href="/contact/" data-i18n="nav.contact">Contact</a>
+                    <a class="dropdown-item" href="/contribute/" data-i18n="nav.contribute">Contribute</a>
+                    <a class="dropdown-item" href="/coc/" data-i18n="nav.coc">Code of Conduct</a>
+                  </div>
+                </li>
+        </ul></div>
+      </nav>
+    </div></div>
+
+    <div class="pg-page-wrapper" style="margin-top:1rem;"><div class="pg-content-area">
+      <aside class="pg-sidebar">
+        <div class="pg-sidebar-logo"><a href="/"><img src="/pict/smal.jpeg" alt="AZERPUG"></a><div class="pg-sidebar-logo-text">Azerbaijan PostgreSQL<br>User Group</div></div>
+        <div class="pg-sidebar-section"><h3 data-i18n="jobs.sidebar_title">Job Board</h3><ul>
+          <li><a href="#listings" class="active" onclick="showView('listing')" data-i18n="jobs.listings">Job Listings</a></li>
+          <li><a href="#post" onclick="showView('post')">Post a Job</a></li>
+        </ul></div>
+        <div class="pg-sidebar-section"><h3>Community</h3><ul>
+          <li><a href="/members/">Members</a></li><li><a href="/blogs/">Blog Posts</a></li><li><a href="/events/">Events</a></li>
+        </ul></div>
+      </aside>
+
+      <main class="pg-main-content">
+
+        <!-- Job Listings View -->
+        <div id="viewListing" class="pg-view active">
+          <h1 class="pg-page-title" data-i18n="jobs.title">PostgreSQL Job Board</h1>
+          <p class="pg-page-subtitle" data-i18n="jobs.subtitle">Find PostgreSQL-related jobs in Azerbaijan and remote positions. Members can post job openings for free.</p>
+
+          <div style="display:flex;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap;">
+            <button class="pg-btn pg-btn-success" onclick="showView('post')"><i class="fas fa-plus"></i> <span data-i18n="jobs.post">Post a Job</span></button>
+          </div>
+
+          <div id="jobsList">
+            <div class="pg-loading"><i class="fas fa-spinner fa-spin"></i><div>Loading jobs...</div></div>
+          </div>
+        </div>
+
+        <!-- Post Job View -->
+        <div id="viewPost" class="pg-view">
+          <h1 class="pg-page-title">Post a Job</h1>
+          <p class="pg-page-subtitle">Share a PostgreSQL-related job opportunity with the community. Free for all members.</p>
+
+          <button class="pg-btn pg-btn-secondary" style="margin-bottom:16px;" onclick="showView('listing')"><i class="fas fa-arrow-left"></i> <span data-i18n="jobs.listings">Back to Listings</span></button>
+
+          <div id="postAlert"></div>
+
+          <div id="postLoginMsg" style="display:none;" class="pg-info-box">
+            <i class="fas fa-sign-in-alt"></i> You need to <a href="/login/">log in</a> to post a job.
+          </div>
+
+          <div class="pg-card" id="postForm">
+            <div class="pg-card-header"><i class="fas fa-briefcase"></i> Job Details</div>
+            <div class="pg-card-body">
+              <div class="pg-form-row">
+                <div class="pg-form-group"><label data-i18n="jobs.form_title">Job Title <span class="req">*</span></label><input type="text" class="pg-form-control" id="jTitle" placeholder="e.g. Senior PostgreSQL DBA" data-i18n-placeholder="jobs.ph_title"></div>
+                <div class="pg-form-group"><label data-i18n="jobs.form_company">Company <span class="req">*</span></label><input type="text" class="pg-form-control" id="jCompany" placeholder="Company name" data-i18n-placeholder="jobs.ph_company"></div>
+              </div>
+              <div class="pg-form-row">
+                <div class="pg-form-group"><label data-i18n="jobs.form_location">Location</label><input type="text" class="pg-form-control" id="jLocation" placeholder="e.g. Baku, Azerbaijan" data-i18n-placeholder="jobs.ph_location"></div>
+                <div class="pg-form-group"><label data-i18n="jobs.form_type">Job Type</label>
+                  <select class="pg-form-control" id="jType"><option value="full-time">Full-time</option><option value="part-time">Part-time</option><option value="contract">Contract</option><option value="freelance">Freelance</option><option value="internship">Internship</option></select>
+                </div>
+              </div>
+              <div class="pg-form-row">
+                <div class="pg-form-group"><label data-i18n="jobs.form_salary">Salary Range</label><input type="text" class="pg-form-control" id="jSalary" placeholder="e.g. $3000-5000/month or Negotiable"></div>
+                <div class="pg-form-group" style="padding-top:28px;"><div class="pg-checkbox"><input type="checkbox" id="jRemote"><label for="jRemote">Remote position available</label></div></div>
+              </div>
+              <div class="pg-form-group"><label data-i18n="jobs.form_desc">Description <span class="req">*</span></label><textarea class="pg-form-control" id="jDesc" placeholder="Describe the role, responsibilities, and what you're looking for..."></textarea></div>
+              <div class="pg-form-group"><label data-i18n="jobs.form_reqs">Requirements</label><textarea class="pg-form-control" id="jReqs" rows="3" placeholder="Required skills, experience, qualifications..."></textarea></div>
+              <div class="pg-form-row">
+                <div class="pg-form-group"><label data-i18n="jobs.form_url">Apply URL</label><input type="url" class="pg-form-control" id="jUrl" placeholder="https://careers.example.com/apply"></div>
+                <div class="pg-form-group"><label data-i18n="jobs.form_email">Apply Email</label><input type="email" class="pg-form-control" id="jEmail" placeholder="hr@example.com"></div>
+              </div>
+              <div class="pg-form-group"><label data-i18n="jobs.form_tags">Tags</label><input type="text" class="pg-form-control" id="jTags" placeholder="e.g. postgresql, dba, aws, linux (comma separated)"><div class="pg-form-hint">Separate tags with commas</div></div>
+              <div class="pg-form-actions">
+                <button class="pg-btn pg-btn-primary" id="submitJobBtn" onclick="submitJob()"><i class="fas fa-paper-plane"></i> <span data-i18n="jobs.post">Post Job</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div></div></div>
+
+    <footer id="footer"><div class="container">
+      <a href="/"><img class="footer-logo" src="/pict/smal.jpeg" alt="AZERPUG"></a><br/>
+      <div style="margin-bottom:12px;"><a href="https://www.facebook.com/groups/www.postgresql.az" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="Facebook" aria-label="Facebook Group"><i class="fab fa-facebook"></i></a> <a href="https://github.com/valehdba/postgresql.az" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="GitHub" aria-label="our GitHub Repository"><i class="fab fa-github"></i></a> <a href="https://www.linkedin.com/groups/17977044/" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="LinkedIn" aria-label="LinkedIn Group"><i class="fab fa-linkedin"></i></a> <a href="https://t.me/postgresqlaz" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="Telegram" aria-label="Telegram Group"><i class="fab fa-telegram-plane"></i></a> <a href="https://www.youtube.com/@postgresqlaz" target="_blank" rel="noopener" style="margin:0 6px;color:#515151;font-size:1.1rem;" title="YouTube" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a></div>
+      <a href="/about/privacypolicy/" data-i18n="footer.privacy">Privacy policy</a> | <a href="/about/website/" data-i18n="footer.website">About the website</a> | <a href="/coc/" data-i18n="footer.coc">Code of Conduct</a><br/>
+      Copyright &copy; 2018-2025 Azerbaijan PostgreSQL User Group (AZERPUG)
+    </div></footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/navbar-auth-v2.js"></script>
+    <script src="/js/lang.js"></script>
+
+    <!-- v2.1 -->
+    <script>
+      // SB and KEY are in supabase-client.js as SUPABASE_URL and SUPABASE_ANON_KEY
+      var user=null; // Set by initAuth() below
+      function esc(t){if(!t)return'';var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+
+      var typeLabels={['full-time']:'Full-time',['part-time']:'Part-time',contract:'Contract',freelance:'Freelance',internship:'Internship'};
+      var typeBadge={['full-time']:'pg-badge-ft',['part-time']:'pg-badge-pt',contract:'pg-badge-contract',freelance:'pg-badge-freelance',internship:'pg-badge-internship'};
+
+      function showView(v){
+        document.querySelectorAll('.pg-view').forEach(function(el){el.classList.remove('active')});
+        if(v==='post'){
+          if(!user){
+            // Show login prompt instead of post form
+            var listing=document.getElementById('viewListing');
+            listing.classList.add('active');
+            var loginMsg=document.createElement('div');
+            loginMsg.id='jobLoginAlert';
+            loginMsg.style.cssText='background:#e7eef4;border-left:4px solid #336791;padding:16px 20px;border-radius:0 4px 4px 0;margin-bottom:16px;font-size:.92rem;color:#515151;';
+            loginMsg.innerHTML='<i class="fas fa-sign-in-alt" style="color:#336791;margin-right:8px;"></i> Please <a href="/login/" style="color:#336791;font-weight:700;">sign in</a> or <a href="/registration/" style="color:#336791;font-weight:700;">register</a> first, then you can post a job.';
+            var existing=document.getElementById('jobLoginAlert');
+            if(existing)existing.remove();
+            listing.insertBefore(loginMsg,listing.firstChild.nextSibling);
+            window.scrollTo({top:0,behavior:'smooth'});
+            return;
+          }
+          var vp=document.getElementById('viewPost');
+          if(vp)vp.classList.add('active');
+        } else {
+          var alert=document.getElementById('jobLoginAlert');if(alert)alert.remove();
+          document.getElementById('viewListing').classList.add('active');
+        }
+      }
+
+      async function loadJobs(){
+        var el=document.getElementById('jobsList');
+        try{
+          var controller=new AbortController();
+          var timeout=setTimeout(function(){controller.abort();},8000);
+          var r=await fetch(SUPABASE_URL+'/rest/v1/public_jobs?select=*&order=created_at.desc',{headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+(await sbGetToken())},signal:controller.signal});
+          clearTimeout(timeout);
+          if(!r.ok)throw new Error(await r.text());
+          var jobs=await r.json();
+          if(jobs.length===0){el.innerHTML='<div class="pg-empty"><i class="fas fa-briefcase"></i>No jobs posted yet. Be the first to <a href="#" onclick="showView(\'post\')">post a job</a>!</div>';return;}
+
+          var html='';
+          jobs.forEach(function(j,idx){
+            var date=j.created_at?new Date(j.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
+            var tags=(j.tags||[]).map(function(t){return'<span class="pg-tag">'+esc(t)+'</span>'}).join('');
+            var badge=typeBadge[j.job_type]||'pg-badge-ft';
+            var applyBtn='';
+            if(j.apply_email){
+              applyBtn='<a href="mailto:'+esc(j.apply_email)+'?subject=Application%20for%20'+encodeURIComponent(j.title)+'&body=Dear%20Hiring%20Manager%2C%0A%0AI%20would%20like%20to%20apply%20for%20the%20position%20of%20'+encodeURIComponent(j.title)+'.%20Please%20find%20my%20CV%20attached.%0A%0ABest%20regards" class="pg-btn pg-btn-primary"><i class="fas fa-envelope"></i> Apply via Email</a>';
+            }
+            if(j.apply_url){
+              var url=j.apply_url;if(url&&!/^https?:\/\//i.test(url))url='https://'+url;
+              applyBtn+='<a href="'+esc(url)+'" target="_blank" rel="noopener" class="pg-btn pg-btn-secondary" style="margin-left:6px;"><i class="fas fa-external-link-alt"></i> Company Website</a>';
+            }
+
+            // Owner actions (edit/delete)
+            var ownerBtns='';
+            if(user&&j.posted_by===user.id){
+              ownerBtns='<div style="display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--pg-border);">'+
+                '<button class="pg-btn pg-btn-secondary" onclick="editJob(\''+j.id+'\','+idx+')"><i class="fas fa-edit"></i> Edit</button>'+
+                '<button class="pg-btn pg-btn-secondary" style="color:var(--pg-danger);border-color:var(--pg-danger);" onclick="deleteJob(\''+j.id+'\')"><i class="fas fa-trash"></i> Delete</button>'+
+              '</div>';
+            }
+
+            var shortDesc=esc(j.description).substring(0,300)+(j.description&&j.description.length>300?'...':'');
+            var fullDesc=esc(j.description||'').replace(/\n/g,'<br>');
+            var fullReq=j.requirements?esc(j.requirements).replace(/\n/g,'<br>'):'';
+            var hasMore=j.description&&j.description.length>300||j.requirements;
+
+            html+='<div class="pg-job-card" id="job-'+idx+'" data-job=\''+JSON.stringify(j).replace(/'/g,"&#39;")+'\'><div class="pg-job-header"><h3>'+esc(j.title)+'</h3><div class="pg-job-badges"><span class="pg-badge '+badge+'">'+(typeLabels[j.job_type]||j.job_type)+'</span>'+(j.is_remote?'<span class="pg-badge pg-badge-remote"><i class="fas fa-globe"></i> Remote</span>':'')+'</div></div>'+
+              '<div class="pg-job-meta"><span><i class="fas fa-building"></i> '+esc(j.company)+'</span>'+(j.location?'<span><i class="fas fa-map-marker-alt"></i> '+esc(j.location)+'</span>':'')+(j.salary_range?'<span><i class="fas fa-money-bill-wave"></i> '+esc(j.salary_range)+'</span>':'')+'<span><i class="fas fa-calendar"></i> '+date+'</span></div>'+
+              '<div class="pg-job-desc" id="job-short-'+idx+'">'+shortDesc+'</div>'+
+              '<div class="pg-job-details" id="job-full-'+idx+'" style="display:none;">'+
+                '<div class="pg-job-desc" style="white-space:pre-line;">'+fullDesc+'</div>'+
+                (fullReq?'<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--pg-border);"><strong style="font-size:.85rem;color:var(--pg-text);">Requirements</strong><div class="pg-job-desc" style="margin-top:6px;white-space:pre-line;">'+fullReq+'</div></div>':'')+
+              '</div>'+
+              (tags?'<div class="pg-job-tags">'+tags+'</div>':'')+
+              '<div class="pg-job-apply">'+
+                (hasMore?'<button class="pg-btn pg-btn-secondary" id="job-toggle-'+idx+'" onclick="toggleJobDetails('+idx+')"><i class="fas fa-info-circle"></i> View Details</button>':'')+
+                applyBtn+
+              '</div>'+ownerBtns+'</div>';
+          });
+          el.innerHTML=html;
+        }catch(e){
+          console.error(e);
+          el.innerHTML='<div class="pg-empty"><i class="fas fa-briefcase"></i>No jobs posted yet. Be the first to <a href="#" onclick="showView(\'post\')">post a job</a>!</div>';
+        }
+      }
+
+      async function submitJob(){
+        if(!user){alert('Please log in first.');return;}
+        var t=document.getElementById('jTitle').value.trim();
+        var c=document.getElementById('jCompany').value.trim();
+        var d=document.getElementById('jDesc').value.trim();
+        if(!t||!c||!d){document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-danger">Title, company, and description are required.</div>';return;}
+        try{
+          var tags=document.getElementById('jTags').value.trim();
+          tags=tags?tags.split(',').map(function(x){return x.trim()}).filter(Boolean):[];
+          var r=await fetch(SUPABASE_URL+'/rest/v1/rpc/post_job',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+(await sbGetToken())},
+            body:JSON.stringify({p_title:t,p_company:c,p_location:document.getElementById('jLocation').value.trim()||null,p_is_remote:document.getElementById('jRemote').checked,p_job_type:document.getElementById('jType').value,p_description:d,p_requirements:document.getElementById('jReqs').value.trim()||null,p_salary_range:document.getElementById('jSalary').value.trim()||null,p_apply_url:document.getElementById('jUrl').value.trim()||null,p_apply_email:document.getElementById('jEmail').value.trim()||null,p_tags:tags})});
+          if(r.ok){showView('listing');(async function initAuth(){
+        try { var m = await sbGetMember(); if(m) user = m; } catch(e) {}
+        loadJobs();
+      })();document.getElementById('postAlert').innerHTML='';}
+          else{var e=await r.text();document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-danger">Failed: '+esc(e)+'</div>';}
+        }catch(e){document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-danger">Failed to post job.</div>';}
+      }
+
+      function toggleJobDetails(idx){
+        var short=document.getElementById('job-short-'+idx);
+        var full=document.getElementById('job-full-'+idx);
+        var btn=document.getElementById('job-toggle-'+idx);
+        if(full.style.display==='none'){
+          full.style.display='block';short.style.display='none';
+          btn.innerHTML='<i class="fas fa-chevron-up"></i> Hide Details';
+        }else{
+          full.style.display='none';short.style.display='block';
+          btn.innerHTML='<i class="fas fa-info-circle"></i> View Details';
+        }
+      }
+
+      var editingJobId=null;
+
+      function editJob(jobId,idx){
+        var card=document.getElementById('job-'+idx);
+        var j=JSON.parse(card.getAttribute('data-job'));
+        editingJobId=jobId;
+
+        // Switch to post view and fill form with existing data
+        showView('post');
+        document.getElementById('jTitle').value=j.title||'';
+        document.getElementById('jCompany').value=j.company||'';
+        document.getElementById('jLocation').value=j.location||'';
+        document.getElementById('jRemote').checked=j.is_remote||false;
+        document.getElementById('jType').value=j.job_type||'full-time';
+        document.getElementById('jDesc').value=j.description||'';
+        document.getElementById('jReqs').value=j.requirements||'';
+        document.getElementById('jSalary').value=j.salary_range||'';
+        document.getElementById('jUrl').value=j.apply_url||'';
+        document.getElementById('jEmail').value=j.apply_email||'';
+        document.getElementById('jTags').value=(j.tags||[]).join(', ');
+
+        // Update form title and button
+        document.querySelector('#viewPost .pg-page-title').textContent='Edit Job Post';
+        var submitBtn=document.getElementById('submitJobBtn');
+        submitBtn.innerHTML='<i class="fas fa-save"></i> Update Job';
+        submitBtn.onclick=function(){updateJob()};
+        window.scrollTo({top:0,behavior:'smooth'});
+      }
+
+      async function updateJob(){
+        var t=document.getElementById('jTitle').value.trim();
+        var c=document.getElementById('jCompany').value.trim();
+        var d=document.getElementById('jDesc').value.trim();
+        if(!t||!c||!d){document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-danger">Title, company, and description are required.</div>';return;}
+
+        var tags=document.getElementById('jTags').value.split(',').map(function(x){return x.trim()}).filter(Boolean);
+        var body={
+          title:t,company:c,
+          location:document.getElementById('jLocation').value.trim()||null,
+          is_remote:document.getElementById('jRemote').checked,
+          job_type:document.getElementById('jType').value,
+          description:d,
+          requirements:document.getElementById('jReqs').value.trim()||null,
+          salary_range:document.getElementById('jSalary').value.trim()||null,
+          apply_url:document.getElementById('jUrl').value.trim()||null,
+          apply_email:document.getElementById('jEmail').value.trim()||null,
+          tags:tags.length?tags:null
+        };
+
+        try{
+          var r=await fetch(SUPABASE_URL+'/rest/v1/rpc/update_my_job',{
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+(await sbGetToken())},
+            body:JSON.stringify({
+              p_job_id:editingJobId,
+              p_title:t,p_company:c,
+              p_location:document.getElementById('jLocation').value.trim()||null,
+              p_is_remote:document.getElementById('jRemote').checked,
+              p_job_type:document.getElementById('jType').value,
+              p_description:d,
+              p_requirements:document.getElementById('jReqs').value.trim()||null,
+              p_salary_range:document.getElementById('jSalary').value.trim()||null,
+              p_apply_url:document.getElementById('jUrl').value.trim()||null,
+              p_apply_email:document.getElementById('jEmail').value.trim()||null,
+              p_tags:tags.length?tags:null
+            })
+          });
+          if(r.ok){
+            document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-success"><i class="fas fa-check"></i> Job updated successfully!</div>';
+            editingJobId=null;
+            setTimeout(function(){showView('listing');loadJobs();document.getElementById('postAlert').innerHTML='';},1500);
+          }else{
+            var e=await r.text();
+            document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-danger">Failed to update: '+esc(e)+'</div>';
+          }
+        }catch(e){
+          document.getElementById('postAlert').innerHTML='<div class="pg-alert pg-alert-danger">Failed to update job.</div>';
+        }
+      }
+
+      async function deleteJob(jobId){
+        if(!confirm('Are you sure you want to delete this job post? This cannot be undone.'))return;
+        try{
+          var r=await fetch(SUPABASE_URL+'/rest/v1/rpc/delete_my_job',{
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+(await sbGetToken())},
+            body:JSON.stringify({p_job_id:jobId})
+          });
+          if(r.ok){loadJobs();}
+          else{alert('Failed to delete job.');}
+        }catch(e){alert('Failed to delete job.');}
+      }
+
+      // Reset form when switching to post view for new job
+      var origShowView=showView;
+      showView=function(v){
+        if(v==='post'&&!editingJobId){
+          // Reset form for new post
+          setTimeout(function(){
+            var title=document.querySelector('#viewPost .pg-page-title');
+            if(title)title.textContent='Post a Job';
+            var btn=document.getElementById('submitJobBtn');
+            if(btn){btn.innerHTML='<i class="fas fa-paper-plane"></i> Submit Job';btn.onclick=function(){submitJob()};}
+          },50);
+        }
+        origShowView(v);
+      };
+
+      loadJobs();
+      // FINDING-011: Remove post form from DOM for anonymous users
+      if(!user){var vp=document.getElementById('viewPost');if(vp)vp.parentNode.removeChild(vp);}
+      if(window.location.hash==='#post')showView('post');
+    </script>
+</body>
+</html>
