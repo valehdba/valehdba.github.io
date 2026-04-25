@@ -2,8 +2,8 @@
    Supabase Client — Shared across all pages
    Include BEFORE any page-specific scripts
    ============================================= */
-var SUPABASE_URL = 'https://qlyqwwhimwfcvuqdrxov.supabase.co';
-var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFseXF3d2hpbXdmY3Z1cWRyeG92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMjg2ODYsImV4cCI6MjA4OTcwNDY4Nn0.6MKz72wGwthRL8hs-Iv3L9Iw_W4DdGh3UjrwcagtKfM';
+var SUPABASE_URL = 'https://edegbbhawdccminuaywq.supabase.co';
+var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkZWdiYmhhd2RjY21pbnVheXdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcxMTMyMjMsImV4cCI6MjA5MjY4OTIyM30.Pc9t5lprGhOkwomY0H_gBm0ja69TnKKVwGYXZ4iWU8Y';
 
 // Initialize Supabase client
 var _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
