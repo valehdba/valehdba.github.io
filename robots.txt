@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://postgresql.az/sitemap.xml
+Sitemap: https://valehdba.github.io/sitemap.xml
 
 # Admin panel should not be indexed
 Disallow: /admin/
