@@ -214,6 +214,7 @@
           <button class="admin-tab" id="eventsTab" onclick="switchTab('events')" style="margin-left:auto;border-left:2px solid var(--pg-border);padding-left:16px;"><i class="fas fa-calendar-plus"></i> Events</button>
           <button class="admin-tab" id="messagesTab" onclick="switchTab('messages')" style="border-left:2px solid var(--pg-border);padding-left:16px;"><i class="fas fa-envelope"></i> Messages <span class="badge" id="messagesBadge" style="display:none;"></span></button>
           <button class="admin-tab" id="volunteersTab" onclick="switchTab('volunteers')"><i class="fas fa-hands-helping"></i> Volunteers <span class="badge" id="volunteersBadge" style="display:none;"></span></button>
+          <button class="admin-tab" onclick="showAdminResetPassword()" style="border-left:2px solid var(--pg-border);padding-left:16px;"><i class="fas fa-key"></i> Reset Password</button>
         </div>
 
         <!-- Posts List -->
@@ -322,6 +323,17 @@
               <button class="admin-preview-close" onclick="closeVolunteerDetail()">&times;</button>
             </div>
             <div class="admin-preview-body" id="volunteerDetailBody" style="padding:24px;"></div>
+          </div>
+        </div>
+
+        <!-- Admin Reset Password Modal -->
+        <div class="admin-preview-overlay" id="adminResetOverlay" onclick="if(event.target===this)closeAdminReset()" style="display:none;">
+          <div class="admin-preview-modal" style="max-width:500px;">
+            <div class="admin-preview-header">
+              <h2><i class="fas fa-key"></i> Reset Member Password</h2>
+              <button class="admin-preview-close" onclick="closeAdminReset()">&times;</button>
+            </div>
+            <div class="admin-preview-body" id="adminResetBody" style="padding:24px;"></div>
           </div>
         </div>
 
@@ -1164,6 +1176,83 @@
           loadStats();
         } catch(e) {
           alert('Failed to update status: ' + e.message);
+        }
+      }
+
+      // =============================================
+      // ADMIN: RESET MEMBER PASSWORD
+      // =============================================
+      async function showAdminResetPassword() {
+        // Load members list if not loaded
+        var html = '<div style="margin-bottom:16px;"><label style="font-weight:700;font-size:.85rem;color:var(--pg-text-light);text-transform:uppercase;margin-bottom:6px;display:block;">Select Member:</label>' +
+          '<select id="resetMemberSelect" class="pg-form-control" style="margin-bottom:12px;"><option value="">-- Select a member --</option></select></div>' +
+          '<div class="pg-form-group"><label style="font-weight:700;font-size:.85rem;">New Password:</label>' +
+          '<input type="text" id="adminResetPw" class="pg-form-control" placeholder="Enter new password (min 8 chars)" style="margin-bottom:12px;"></div>' +
+          '<div id="adminResetMsg"></div>' +
+          '<div style="display:flex;gap:8px;margin-top:12px;">' +
+          '<button class="btn-pg btn-approve" onclick="doAdminResetPassword()"><i class="fas fa-key"></i> Reset Password</button>' +
+          '<button class="btn-pg" style="background:transparent;color:var(--pg-text-light);border:1px solid var(--pg-border);" onclick="closeAdminReset()">Cancel</button></div>';
+
+        document.getElementById('adminResetBody').innerHTML = html;
+        document.getElementById('adminResetOverlay').style.display = 'flex';
+
+        // Load members
+        try {
+          var r = await fetch(SUPABASE_URL + '/rest/v1/rpc/admin_get_all_members', {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json', 'apikey':SUPABASE_ANON_KEY, 'Authorization':'Bearer '+SUPABASE_ANON_KEY },
+            body: JSON.stringify({ p_admin_id: admin.id })
+          });
+          if (!r.ok) throw new Error();
+          var members = await r.json();
+          if (typeof members === 'string') members = JSON.parse(members);
+          var sel = document.getElementById('resetMemberSelect');
+          if (Array.isArray(members)) {
+            members.forEach(function(m) {
+              var opt = document.createElement('option');
+              opt.value = m.id;
+              opt.textContent = (m.first_name || '') + ' ' + (m.last_name || '') + ' <' + (m.email || '') + '>';
+              sel.appendChild(opt);
+            });
+          }
+        } catch(e) { document.getElementById('adminResetMsg').innerHTML = '<div class="pg-alert pg-alert-danger">Failed to load members.</div>'; }
+      }
+
+      function closeAdminReset() {
+        document.getElementById('adminResetOverlay').style.display = 'none';
+      }
+
+      async function doAdminResetPassword() {
+        var memberId = document.getElementById('resetMemberSelect').value;
+        var newPw = document.getElementById('adminResetPw').value;
+        var msgEl = document.getElementById('adminResetMsg');
+
+        if (!memberId) { msgEl.innerHTML = '<div class="pg-alert pg-alert-danger">Please select a member.</div>'; return; }
+        if (!newPw || newPw.length < 8) { msgEl.innerHTML = '<div class="pg-alert pg-alert-danger">Password must be at least 8 characters.</div>'; return; }
+
+        msgEl.innerHTML = '<div class="pg-alert" style="background:var(--pg-blue-light);color:var(--pg-blue-dark);"><i class="fas fa-spinner fa-spin"></i> Resetting...</div>';
+
+        try {
+          // Hash the new password
+          var d = new TextEncoder().encode(newPw);
+          var b = await crypto.subtle.digest('SHA-256', d);
+          var hash = Array.from(new Uint8Array(b)).map(function(x) { return x.toString(16).padStart(2,'0'); }).join('');
+
+          var r = await fetch(SUPABASE_URL + '/rest/v1/rpc/admin_reset_member_password', {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json', 'apikey':SUPABASE_ANON_KEY, 'Authorization':'Bearer '+SUPABASE_ANON_KEY },
+            body: JSON.stringify({ p_admin_id: admin.id, p_member_id: memberId, p_new_password_hash: hash })
+          });
+          if (!r.ok) { var e = await r.text(); throw new Error(e); }
+          var result = await r.json();
+
+          if (result.success) {
+            msgEl.innerHTML = '<div class="pg-alert pg-alert-success"><i class="fas fa-check-circle"></i> Password reset successfully for <strong>' + esc(result.first_name) + '</strong> (' + esc(result.email) + '). New password: <code>' + esc(newPw) + '</code></div>';
+          } else {
+            msgEl.innerHTML = '<div class="pg-alert pg-alert-danger">' + esc(result.error || 'Failed to reset password.') + '</div>';
+          }
+        } catch(e) {
+          msgEl.innerHTML = '<div class="pg-alert pg-alert-danger">Error: ' + esc(e.message) + '</div>';
         }
       }
 
