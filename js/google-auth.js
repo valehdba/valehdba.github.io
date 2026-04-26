@@ -3,8 +3,8 @@
    Shared across login and registration pages
    ============================================= */
 var GOOGLE_CLIENT_ID = '328722583843-n04cr2tp7uhg4876m74ap124t366khq7.apps.googleusercontent.com';
-var SB_URL = 'https://qlyqwwhimwfcvuqdrxov.supabase.co';
-var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFseXF3d2hpbXdmY3Z1cWRyeG92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMjg2ODYsImV4cCI6MjA4OTcwNDY4Nn0.6MKz72wGwthRL8hs-Iv3L9Iw_W4DdGh3UjrwcagtKfM';
+var SB_URL = 'https://vgiusytaczuaairuayzn.supabase.co';
+var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnaXVzeXRhY3p1YWFpcnVheXpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyMDA5NTQsImV4cCI6MjA5Mjc3Njk1NH0.HLrpjZGM3VdQ24BYU7eY7-RZP2q8mt6PjlvkhIN0iZ0';
 
 function handleGoogleCredential(response) {
   // Decode JWT token from Google
