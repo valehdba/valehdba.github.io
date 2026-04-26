@@ -82,6 +82,9 @@
             <input type="password" class="pg-form-control" id="loginPassword" placeholder="Your password" data-i18n-placeholder="login.ph_password">
           </div>
           <button class="pg-btn-primary" id="loginBtn" onclick="doLogin()"><i class="fas fa-sign-in-alt"></i> <span data-i18n="login.btn">Sign In</span></button>
+          <div style="text-align:center;margin-top:10px;">
+            <a href="#" onclick="showForgotPassword();return false;" style="font-size:.85rem;color:var(--pg-blue-dark);" data-i18n="login.forgot">Forgot your password?</a>
+          </div>
           <div class="pg-divider">or</div>
           <div id="googleBtnContainer" style="display:flex;justify-content:center;margin-bottom:12px;">
             <div id="g_id_onload"
@@ -110,6 +113,63 @@
       <div class="pg-login-footer">
         <a href="/">Back to Home</a> &middot; <a href="/about/">About Us</a> &middot; <a href="/faq/">FAQ</a>
       </div>
+
+      <!-- Forgot Password Modal -->
+      <div id="forgotModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;">
+        <div style="background:var(--pg-white,#fff);border-radius:8px;max-width:420px;width:100%;box-shadow:0 4px 24px rgba(0,0,0,.15);">
+
+          <!-- Step 1: Enter email -->
+          <div id="forgotStep1">
+            <div style="padding:24px 24px 0;">
+              <h3 style="font-family:'Maven Pro',sans-serif;font-size:1rem;font-weight:700;margin:0 0 4px;"><i class="fas fa-key" style="color:var(--pg-blue-dark);margin-right:6px;"></i> Reset Password</h3>
+              <p style="font-size:.85rem;color:var(--pg-text-light,#888);margin:0 0 16px;" data-i18n="login.reset_desc">Enter your email and we'll send you a reset code.</p>
+            </div>
+            <div style="padding:0 24px 24px;">
+              <div id="forgotError" class="pg-alert pg-alert-danger" style="display:none;"></div>
+              <div id="forgotSuccess" class="pg-alert pg-alert-success" style="display:none;"></div>
+              <div class="pg-form-group">
+                <label for="forgotEmail" data-i18n="login.email">Email Address</label>
+                <input type="email" class="pg-form-control" id="forgotEmail" placeholder="you@example.com">
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button class="pg-btn-primary" id="forgotBtn" onclick="requestReset()" style="flex:1;"><i class="fas fa-paper-plane"></i> <span data-i18n="login.send_code">Send Code</span></button>
+                <button class="pg-btn pg-btn-secondary" onclick="closeForgotModal()" style="flex:0;"><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Enter code + new password -->
+          <div id="forgotStep2" style="display:none;">
+            <div style="padding:24px 24px 0;">
+              <h3 style="font-family:'Maven Pro',sans-serif;font-size:1rem;font-weight:700;margin:0 0 4px;"><i class="fas fa-shield-alt" style="color:var(--pg-blue-dark);margin-right:6px;"></i> Enter Reset Code</h3>
+              <p style="font-size:.85rem;color:var(--pg-text-light,#888);margin:0 0 16px;" data-i18n="login.code_desc">Check your email for the 6-digit code.</p>
+            </div>
+            <div style="padding:0 24px 24px;">
+              <div id="resetError" class="pg-alert pg-alert-danger" style="display:none;"></div>
+              <div class="pg-form-group">
+                <label for="resetCode">Reset Code</label>
+                <input type="text" class="pg-form-control" id="resetCode" placeholder="123456" maxlength="6" style="font-size:1.5rem;text-align:center;letter-spacing:8px;font-weight:700;">
+              </div>
+              <div class="pg-form-group">
+                <label for="resetNewPw" data-i18n="login.new_password">New Password</label>
+                <input type="password" class="pg-form-control" id="resetNewPw" placeholder="Min 8 characters">
+              </div>
+              <div class="pg-form-group">
+                <label for="resetConfirmPw" data-i18n="login.confirm_password">Confirm Password</label>
+                <input type="password" class="pg-form-control" id="resetConfirmPw" placeholder="Repeat password">
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button class="pg-btn-primary" id="resetBtn" onclick="resetPassword()" style="flex:1;"><i class="fas fa-check"></i> <span data-i18n="login.reset_btn">Reset Password</span></button>
+                <button class="pg-btn pg-btn-secondary" onclick="closeForgotModal()" style="flex:0;"><i class="fas fa-times"></i></button>
+              </div>
+              <div style="text-align:center;margin-top:10px;">
+                <a href="#" onclick="showStep1();return false;" style="font-size:.82rem;color:var(--pg-blue-dark);">← Send a new code</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
     <footer id="footer" style="margin-top:60px;"><div class="container">
@@ -129,8 +189,6 @@
     <script>
       var SB='https://vgiusytaczuaairuayzn.supabase.co';
       var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnaXVzeXRhY3p1YWFpcnVheXpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyMDA5NTQsImV4cCI6MjA5Mjc3Njk1NH0.HLrpjZGM3VdQ24BYU7eY7-RZP2q8mt6PjlvkhIN0iZ0';
-
-
 
       async function hashPassword(pw){var d=new TextEncoder().encode(pw);var b=await crypto.subtle.digest('SHA-256',d);return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
 
@@ -171,6 +229,139 @@
           btn.disabled=false;btn.innerHTML='<i class="fas fa-sign-in-alt"></i> Sign In';
         }
       }
+
+      // =============================================
+      // FORGOT PASSWORD
+      // =============================================
+      var resetEmail = '';
+
+      function showForgotPassword() {
+        resetEmail = document.getElementById('loginEmail').value.trim();
+        document.getElementById('forgotEmail').value = resetEmail;
+        document.getElementById('forgotError').style.display = 'none';
+        document.getElementById('forgotSuccess').style.display = 'none';
+        document.getElementById('forgotStep1').style.display = 'block';
+        document.getElementById('forgotStep2').style.display = 'none';
+        document.getElementById('forgotModal').style.display = 'flex';
+      }
+
+      function closeForgotModal() {
+        document.getElementById('forgotModal').style.display = 'none';
+      }
+
+      function showStep1() {
+        document.getElementById('forgotStep1').style.display = 'block';
+        document.getElementById('forgotStep2').style.display = 'none';
+        document.getElementById('forgotError').style.display = 'none';
+        document.getElementById('forgotSuccess').style.display = 'none';
+      }
+
+      async function requestReset() {
+        var email = document.getElementById('forgotEmail').value.trim();
+        var errEl = document.getElementById('forgotError');
+        var successEl = document.getElementById('forgotSuccess');
+        var btn = document.getElementById('forgotBtn');
+
+        if (!email) { errEl.textContent = 'Please enter your email address.'; errEl.style.display = 'block'; return; }
+
+        btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        errEl.style.display = 'none'; successEl.style.display = 'none';
+
+        try {
+          var r = await fetch(SB + '/rest/v1/rpc/request_password_reset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+            body: JSON.stringify({ p_email: email })
+          });
+          if (!r.ok) throw new Error('Request failed');
+          var result = await r.json();
+
+          if (result.success && result.token) {
+            // Send email via EmailJS
+            try {
+              await emailjs.send('service_gtolwpf', 'template_reset_pw', {
+                to_email: result.email,
+                to_name: result.first_name,
+                reset_code: result.token,
+                message: 'Your password reset code is: ' + result.token + '\n\nThis code expires in 15 minutes.\n\nIf you did not request this, please ignore this email.'
+              });
+            } catch(emailErr) {
+              console.warn('EmailJS failed:', emailErr);
+            }
+            resetEmail = email;
+            successEl.innerHTML = '<i class="fas fa-check-circle"></i> A reset code has been sent to your email. Check your inbox.';
+            successEl.style.display = 'block';
+            setTimeout(function() {
+              document.getElementById('forgotStep1').style.display = 'none';
+              document.getElementById('forgotStep2').style.display = 'block';
+            }, 2000);
+          } else if (result.error) {
+            errEl.textContent = result.error;
+            errEl.style.display = 'block';
+          } else {
+            // Email not found — show same success message for security
+            successEl.innerHTML = '<i class="fas fa-check-circle"></i> If this email is registered, a reset code has been sent.';
+            successEl.style.display = 'block';
+          }
+        } catch(e) {
+          errEl.textContent = 'Something went wrong. Please try again.';
+          errEl.style.display = 'block';
+        }
+
+        btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Code';
+      }
+
+      async function resetPassword() {
+        var code = document.getElementById('resetCode').value.trim();
+        var newPw = document.getElementById('resetNewPw').value;
+        var confirmPw = document.getElementById('resetConfirmPw').value;
+        var errEl = document.getElementById('resetError');
+        var btn = document.getElementById('resetBtn');
+
+        errEl.style.display = 'none';
+
+        if (!code || code.length !== 6) { errEl.textContent = 'Please enter the 6-digit code.'; errEl.style.display = 'block'; return; }
+        if (!newPw || newPw.length < 8) { errEl.textContent = 'Password must be at least 8 characters.'; errEl.style.display = 'block'; return; }
+        if (newPw !== confirmPw) { errEl.textContent = 'Passwords do not match.'; errEl.style.display = 'block'; return; }
+
+        btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Resetting...';
+
+        try {
+          var newHash = await hashPassword(newPw);
+          var r = await fetch(SB + '/rest/v1/rpc/reset_password_with_token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+            body: JSON.stringify({ p_email: resetEmail, p_token: code, p_new_password_hash: newHash })
+          });
+          if (!r.ok) throw new Error('Request failed');
+          var result = await r.json();
+
+          if (result.success) {
+            closeForgotModal();
+            var loginErr = document.getElementById('loginError');
+            loginErr.style.display = 'block';
+            loginErr.style.background = 'var(--pg-success-bg, #d4edda)';
+            loginErr.style.color = 'var(--pg-success, #155724)';
+            loginErr.style.borderColor = 'var(--pg-success, #c3e6cb)';
+            loginErr.innerHTML = '<i class="fas fa-check-circle"></i> Password reset successfully! You can now sign in with your new password.';
+            document.getElementById('loginEmail').value = resetEmail;
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginPassword').focus();
+          } else {
+            errEl.textContent = result.error || 'Invalid or expired code.';
+            errEl.style.display = 'block';
+          }
+        } catch(e) {
+          errEl.textContent = 'Something went wrong. Please try again.';
+          errEl.style.display = 'block';
+        }
+
+        btn.disabled = false; btn.innerHTML = '<i class="fas fa-check"></i> Reset Password';
+      }
     </script>
+
+    <!-- EmailJS for password reset emails -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('1xXaZzZ874ZIGQM8Q');</script>
 </body>
 </html>
